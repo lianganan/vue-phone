@@ -4,8 +4,11 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './style/base.css'
+import LyTab from 'ly-tab'
+
 Vue.config.productionTip = false
 Vue.use(MintUI)
+Vue.use(LyTab)
 
 /* eslint-disable no-new */
 new Vue({
