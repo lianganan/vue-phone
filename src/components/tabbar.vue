@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     toSy() {
-      this.$router.push("/shouye");
+      this.$router.push("/recommend");
       this.sySrc = require("../assets/img/index2.png");
       this.fxSrc = require("../assets/img/share.png");
       this.gwcSrc = require("../assets/img/shop_cart.png");

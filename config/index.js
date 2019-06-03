@@ -6,7 +6,15 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    // proxyTable: {
+    //   '/api': {
+    //     target: 'https://test.duodianbao.net/QLQW/h5/direct/sales', // 后台访问地址
+    //     changeOrigin: true,
+    //     pathRewrite: {
+    //       '^/api': ''
+    //     }
+    //   }
+    // },
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',

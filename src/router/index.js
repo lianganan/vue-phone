@@ -5,10 +5,12 @@ import shouye from "@/pages/shouye";
 import fx from "@/pages/fengxiang";
 import gwc from "@/pages/gouwuche";
 import my from "@/pages/my";
-import tuijian from "@/components/tuijian";
+import Recommend from "@/components/Recommend";
+import Healthcare from "@/components/Healthcare";
+import login from "@/pages/login";
 Vue.use(Router);
 
-export default new Router({
+const router = new Router({
   routes: [
     {
       path: "/",
@@ -20,12 +22,34 @@ export default new Router({
           path: "/shouye",
           name: "shouye",
           component: shouye,
-          children: [{ path: "/tuijian", name: "tuijian", component: tuijian }]
+          children: [
+            { path: "/recommend", name: "recommend", component: Recommend },
+            { path: "/healthcare", name: "healthcare", component: Healthcare }
+          ]
         },
         { path: "/fx", name: "fx", component: fx },
         { path: "/gwc", name: "gwc", component: gwc },
         { path: "/my", name: "my", component: my }
       ]
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: login
     }
   ]
 });
+// 全局路由守卫
+router.beforeEach((to, from, next) => {
+  // console.log(to);
+  if(to.path !== "/login"){
+    if(sessionStorage.getItem('logoInfo')){
+      next();
+    }else{
+      next("/login");
+    }
+  }else{
+    next();
+  }
+});
+export default router;
